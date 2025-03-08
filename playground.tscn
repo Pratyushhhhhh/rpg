@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bd4qxa3vtr0fv"]
+
+[ext_resource type="Texture2D" uid="uid://pr3m5lw7i62r" path="res://assets/Characters/Rogue/Idle/Idle-Sheet.png" id="1_x1hun"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbium"]
+atlas = ExtResource("1_x1hun")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rit5l"]
+atlas = ExtResource("1_x1hun")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3i5t"]
+atlas = ExtResource("1_x1hun")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_351i0"]
+atlas = ExtResource("1_x1hun")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjplv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbium")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rit5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3i5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_351i0")
+}],
+"loop": true,
+"name": &"ideal",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2i5hp"]
+radius = 378.16
+
+[node name="player" type="Node2D"]
+position = Vector2(-1, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(5, -765)
+scale = Vector2(63.1815, 50.2282)
+sprite_frames = SubResource("SpriteFrames_pjplv")
+animation = &"ideal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(45, -544)
+shape = SubResource("CircleShape2D_2i5hp")
